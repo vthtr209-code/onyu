@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Onyu — quiet, elegant palette inspired by hanji paper, ink and brass */
+  --onyu-ivory: #f7f4ee;
+  --onyu-paper: #fbf9f5;
+  --onyu-ink: #211d18;
+  --onyu-ink-soft: #4a443c;
+  --onyu-line: #e3ddd0;
+  --onyu-brass: #a97c50;
+  --onyu-brass-deep: #7c5a37;
+  --onyu-pine: #2f3b32;
+
+  --background: var(--onyu-ivory);
+  --foreground: var(--onyu-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ivory: var(--onyu-ivory);
+  --color-paper: var(--onyu-paper);
+  --color-ink: var(--onyu-ink);
+  --color-ink-soft: var(--onyu-ink-soft);
+  --color-line: var(--onyu-line);
+  --color-brass: var(--onyu-brass);
+  --color-brass-deep: var(--onyu-brass-deep);
+  --color-pine: var(--onyu-pine);
+  --font-serif: "Playfair Display", serif;
+  --font-serif-ko: "Noto Serif KR", serif;
+  --font-body: "Inter", sans-serif;
+  --font-body-ko: "Noto Sans KR", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), var(--font-body-ko), -apple-system, sans-serif;
+}
+
+[data-locale="ko"] {
+  font-family: var(--font-body-ko), var(--font-body), -apple-system, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-serif), var(--font-serif-ko), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+[data-locale="ko"] .font-display {
+  font-family: var(--font-serif-ko), var(--font-serif), Georgia, serif;
+  letter-spacing: 0;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.divider-rule {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--onyu-line) 15%,
+    var(--onyu-line) 85%,
+    transparent
+  );
 }
