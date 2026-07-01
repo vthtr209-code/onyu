@@ -1,5 +1,5 @@
 import { ArticleForm } from "@/components/admin/ArticleForm";
 
 export default function NewArticlePage() {
-  return <ArticleForm mode="create" />;
+  return <ArticleForm />;
 }
