@@ -53,10 +53,19 @@ export function Sidebar() {
         </ul>
       </nav>
 
-      <div className="border-t border-line/70 px-5 py-4">
+      <div className="border-t border-line/70 px-5 py-4 space-y-2">
+        <button
+          onClick={async () => {
+            const { supabase } = await import("@/lib/supabase/client");
+            await supabase.auth.signOut();
+          }}
+          className="block text-[12.5px] text-red-600/70 transition-colors hover:text-red-700"
+        >
+          Sign Out
+        </button>
         <Link
           href="/en"
-          className="text-[12.5px] text-ink-soft/70 transition-colors hover:text-brass-deep"
+          className="block text-[12.5px] text-ink-soft/70 transition-colors hover:text-brass-deep"
         >
           ← View Website
         </Link>

@@ -1,4 +1,5 @@
-import { Sidebar } from "@/components/admin/Sidebar";
+import { AuthGuard } from "@/components/admin/AuthGuard";
+import { AdminShell } from "@/components/admin/AdminShell";
 
 export const metadata = {
   title: "Admin | Onyu CMS",
@@ -10,9 +11,8 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
-      <main className="ml-60 flex-1 bg-ivory px-8 py-8">{children}</main>
-    </div>
+    <AuthGuard>
+      <AdminShell>{children}</AdminShell>
+    </AuthGuard>
   );
 }
